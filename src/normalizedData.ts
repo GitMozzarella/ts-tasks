@@ -4,7 +4,7 @@ interface IProps {
 	body: string
 }
 interface NormalizedData {
-	byId: { [postId: string]: IProps }
+	byId: Record<string, IProps>
 	allIds: string[]
 }
 
