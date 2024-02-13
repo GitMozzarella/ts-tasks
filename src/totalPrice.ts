@@ -1,4 +1,4 @@
-type totalPriceProps = {
+interface ITotalPrice {
 	price: number
 	isInstallment: boolean
 	months: number
@@ -10,12 +10,11 @@ const totalPrice = ({
 	isInstallment,
 	months,
 	discount
-}: totalPriceProps) => {
+}: ITotalPrice) => {
 	if (isInstallment) {
 		if (discount) {
 			let priceOfDiscount = (price / 100) * discount
-			let resultSum = (price - priceOfDiscount) / months
-			return resultSum
+			return (price - priceOfDiscount) / months
 		} else {
 			return price / months
 		}
